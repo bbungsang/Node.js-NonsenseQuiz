@@ -2,6 +2,23 @@
 <html lang="ko">
 <% include ./base.ejs %>
 <body>
-  <%= result.question %>
+  <section>
+    <button onclick="prevQ()" class="prev-btn">
+      <i class="im im-angle-left"></i>
+    </button>
+    <section class="content">
+      <h1>아재 모의고사</h1>
+      <p id="Q">Q: <%= result.question %></p>
+      <input type="text" class="answer">
+      <button class="btn">정답 확인</button>
+      <button class="btn hint">힌트 보기</button>
+      <p>
+        <a href="#">~m*0*m~ 아재력 뽐내러 가기 ♥3♥</a>
+      </p>
+    </section>
+    <button onclick="nextQ()" class="next-btn">
+      <i class="im im-angle-right"></i>
+    </button>
+  </section>
 </body>
 </html>

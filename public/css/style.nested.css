@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  padding: 0; }
+
+.prev-btn {
+  width: 10%;
+  height: 100px;
+  margin: 125px 0;
+  background: transparent;
+  border: none;
+  color: #ddd;
+  cursor: pointer;
+  float: left; }
+  .prev-btn .im-angle-left {
+    font-size: 40px; }
+    .prev-btn .im-angle-left:hover {
+      color: #828282; }
+
+.content {
+  width: 75%;
+  height: 350px;
+  padding: 3.5% 2.5%;
+  text-align: center;
+  font-size: 24px;
+  float: left; }
+  .content i {
+    color: #818181;
+    margin: 0 10px; }
+  .content .answer {
+    width: 70%;
+    margin: 0 15%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid #333;
+    font-size: 20px;
+    text-align: center; }
+  .content .btn {
+    border: none;
+    border-radius: 0;
+    margin: 45px 5px 15px 5px;
+    padding: 8px 60px;
+    background: #333;
+    color: #fafafa;
+    font-size: 16px;
+    cursor: pointer; }
+  .content p a {
+    color: #5FCEC0;
+    font-size: 18px; }
+
+.next-btn {
+  width: 10%;
+  height: 100px;
+  margin: 125px 0;
+  background: transparent;
+  border: none;
+  color: #ddd;
+  cursor: pointer; }
+  .next-btn .im-angle-right {
+    font-size: 40px; }
+    .next-btn .im-angle-right:hover {
+      color: #828282; }
