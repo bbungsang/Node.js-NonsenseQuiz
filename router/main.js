@@ -24,9 +24,13 @@ module.exports = function (app, fs) {
         })
     });
 
+    app.post('/solve/:id', function (req, res) {
+        console.log(req.body.answer);
+    });
+
     app.get('/create', function (req, res) {
         res.render('create', {
-            title: ""
+            console.log("");
         });
     });
 }

@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var fs = require('fs');
+var bodyParser = require('body-parser');
 
 // 서버가 읽을 수 있도록 HTML의 위치를 정의
 app.set('views', __dirname + '/views');
@@ -12,6 +13,10 @@ var server = app.listen(3000, function () {
     console.log("Express server has started on port 3000");
 });
 
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
 // 라우터 모듈인 main.js를 불러와서 app에 전달

@@ -9,8 +9,8 @@
     <section class="content">
       <h1>아재 모의고사</h1>
       <p id="Q">Q: <%= result.question %></p>
-      <input type="text" class="answer">
-      <button class="btn">정답 확인</button>
+      <input type="text" class="answer" />
+      <button class="btn" onclick="checkAnswer()" id="checkBtn" data-value="<%= result.id %>">정답 확인</button>
       <button class="btn hint">힌트 보기</button>
       <p>
         <a href="#">~m*0*m~ 아재력 뽐내러 가기 ♥3♥</a>
@@ -20,5 +20,23 @@
       <i class="im im-angle-right"></i>
     </button>
   </section>
+
+  <script>
+    function checkAnswer () {
+      var answer = $(".answer")[0].value;
+      var q_id = $("#checkBtn")[0].dataset.value;
+      $.ajax({
+        type: "POST",
+        url: "http://localhost:3000/solve/" + q_id,
+        data: {"answer": answer},
+        success: function (response) {
+          console.log("success");
+        },
+        error: function (request, status, error) {
+          console.log("error");
+        }
+      });
+    }
+  </script>
 </body>
 </html>
