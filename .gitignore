@@ -62,3 +62,7 @@ typings/
 .env
 
 db/
+public/scss/
+public/css/*.compact.css
+public/css/*.min.css
+public/css/*.nested.css
