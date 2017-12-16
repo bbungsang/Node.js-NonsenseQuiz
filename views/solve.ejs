@@ -10,7 +10,7 @@
       <h1>아재 모의고사</h1>
       <p id="Q">Q: <%= result.question %></p>
       <input type="text" class="answer" />
-      <button class="btn" onclick="checkAnswer()" id="checkBtn" data-value="<%= result.id %>">정답 확인</button>
+      <button class="btn" id="checkBtn" data-value="<%= result.id %>">정답 확인</button>
       <button class="btn hint">힌트 보기</button>
       <p>
         <a href="#">~m*0*m~ 아재력 뽐내러 가기 ♥3♥</a>
@@ -22,7 +22,7 @@
   </section>
 
   <script>
-    function checkAnswer () {
+    $("#checkBtn").click(function (e) {
       var answer = $(".answer")[0].value;
       var q_id = $("#checkBtn")[0].dataset.value;
       $.ajax({
@@ -30,13 +30,18 @@
         url: "http://localhost:3000/solve/" + q_id,
         data: {"answer": answer},
         success: function (response) {
-          console.log("success");
+          if (response == true) {
+            console.log("정답");
+          } else {
+            console.log("오답");
+          }
         },
-        error: function (request, status, error) {
-          console.log("error");
+        error: function (request, error) {
+          console.log(error);
         }
       });
-    }
+      e.preventDefault();
+    })
   </script>
 </body>
 </html>

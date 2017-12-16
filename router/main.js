@@ -12,8 +12,7 @@ module.exports = function (app, fs) {
     });
 
     app.get('/solve/:id', function (req, res) {
-        var id = req.params.id;
-        var stmt = "SELECT * FROM nonsense_quiz WHERE id=" + id;
+        var stmt = "SELECT * FROM nonsense_quiz WHERE id=" + req.params.id;
         connection.query(stmt, function (err, result) {
            if (err) throw err;
            var result = result[0];
@@ -25,12 +24,20 @@ module.exports = function (app, fs) {
     });
 
     app.post('/solve/:id', function (req, res) {
-        console.log(req.body.answer);
+        var stmt = "SELECT * FROM nonsense_quiz WHERE id=" + req.params.id;
+        connection.query(stmt, function (err, result) {
+            if (err) throw err;
+            if (result[0].answer == req.body.answer) {
+                res.send(true);
+            } else {
+                res.send(false);
+            }
+        })
     });
 
-    app.get('/create', function (req, res) {
-        res.render('create', {
-            console.log("");
-        });
-    });
+    // app.get('/create', function (req, res) {
+    //     res.render('create', {
+    //
+    //     });
+    // });
 }
