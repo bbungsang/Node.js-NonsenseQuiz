@@ -3,7 +3,7 @@
 <% include ./base.ejs %>
 <body>
   <section>
-    <button onclick="prevQ()" class="prev-btn">
+    <button class="prev-btn">
       <i class="im im-angle-left"></i>
     </button>
     <section class="content">
@@ -16,32 +16,20 @@
         <a href="#">~m*0*m~ 아재력 뽐내러 가기 ♥3♥</a>
       </p>
     </section>
-    <button onclick="nextQ()" class="next-btn">
+    <button class="next-btn">
       <i class="im im-angle-right"></i>
     </button>
   </section>
 
-  <script>
-    $("#checkBtn").click(function (e) {
-      var answer = $(".answer")[0].value;
-      var q_id = $("#checkBtn")[0].dataset.value;
-      $.ajax({
-        type: "POST",
-        url: "http://localhost:3000/solve/" + q_id,
-        data: {"answer": answer},
-        success: function (response) {
-          if (response == true) {
-            console.log("정답");
-          } else {
-            console.log("오답");
-          }
-        },
-        error: function (request, error) {
-          console.log(error);
-        }
-      });
-      e.preventDefault();
-    })
-  </script>
+  <!-- 모달창 -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <p class="check-answer"></p>
+      <button class="close">다시 풀어 보기</button>
+      <button class="close">다음 문제로</button>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
 </body>
 </html>

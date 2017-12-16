@@ -18,7 +18,8 @@ module.exports = function (app, fs) {
            var result = result[0];
            res.render('solve', {
                title: 'Nonesense Quiz',
-               result: result
+               result: result,
+               check: "test"
            });
         })
     });
@@ -27,6 +28,7 @@ module.exports = function (app, fs) {
         var stmt = "SELECT * FROM nonsense_quiz WHERE id=" + req.params.id;
         connection.query(stmt, function (err, result) {
             if (err) throw err;
+
             if (result[0].answer == req.body.answer) {
                 res.send(true);
             } else {

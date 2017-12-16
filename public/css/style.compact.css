@@ -21,3 +21,11 @@ body { margin: 0; padding: 0; }
 .next-btn .im-angle-right { font-size: 40px; }
 
 .next-btn .im-angle-right:hover { color: #828282; }
+
+.modal { display: none; position: fixed; z-index: 1; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0, 0, 0, 0.4); }
+
+.modal .modal-content { background: #fff; margin: 15% auto; padding: 5%; border: 1px solid #888; border-radius: 10px; width: 65%; height: 25%; }
+
+.modal .modal-content .check-answer { font-size: 26px; color: #5FCEC0; }
+
+.modal .modal-content .close { border: none; border-radius: 0; margin: 15px 0; padding: 8px 60px; background: #333; color: #fafafa; font-size: 16px; cursor: pointer; }
